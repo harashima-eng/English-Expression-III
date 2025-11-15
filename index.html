@@ -55,3 +55,210 @@
         .tag-row {
             margin-top: 14px;
             display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: #e0f2fe;
+            color: #0f172a;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+        }
+
+        .updated {
+            background: #dcfce7;
+        }
+
+        .grid {
+            margin-top: 26px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 16px;
+        }
+
+        .lesson-card {
+            position: relative;
+            list-style: none;
+        }
+
+        .lesson-card a {
+            display: block;
+            text-decoration: none;
+            background: white;
+            border-radius: 16px;
+            padding: 16px 16px 14px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08);
+            transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease, background 0.16s ease;
+        }
+
+        .lesson-card a:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 36px rgba(15, 23, 42, 0.22);
+            border-color: #6366f1;
+            background: #f8fafc;
+        }
+
+        .lesson-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #6b7280;
+            margin-bottom: 6px;
+        }
+
+        .lesson-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 6px;
+        }
+
+        .lesson-sub {
+            font-size: 13px;
+            color: #6b7280;
+            margin-bottom: 10px;
+        }
+
+        .lesson-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 11px;
+            color: #9ca3af;
+        }
+
+        .pill {
+            padding: 3px 9px;
+            border-radius: 999px;
+            background: #eef2ff;
+            color: #4338ca;
+            font-weight: 600;
+        }
+
+        footer {
+            margin-top: 18px;
+            font-size: 11px;
+            color: #e5e7eb;
+            text-align: center;
+        }
+
+        @media (max-width: 640px) {
+            .card {
+                padding: 22px 18px 18px;
+            }
+
+            header h1 {
+                font-size: 22px;
+            }
+
+            header p {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <main class="card">
+            <header>
+                <h1>English Expression III</h1>
+                <h2>Grammar Breakdown Hub</h2>
+                <p>
+                    このページでは、English Expression III の授業で使う
+                    <strong>Grammar Breakdown</strong> をまとめて見ることができます。  
+                    見たい番号をタップして、詳しい解説スライドに進んでください。
+                </p>
+                <div class="tag-row">
+                    <span class="tag updated">Updated</span>
+                    <span class="tag">A2–B1 Level</span>
+                    <span class="tag">学校用リンク</span>
+                </div>
+            </header>
+
+            <section class="grid" aria-label="Grammar breakdown list">
+                <div class="lesson-card">
+                    <a href="grammar_breakdown_3.html">
+                        <div class="lesson-label">Lesson</div>
+                        <div class="lesson-title">Grammar Breakdown 3</div>
+                        <div class="lesson-sub">Review &amp; practice with examples</div>
+                        <div class="lesson-meta">
+                            <span>EE-III / GB-3</span>
+                            <span class="pill">Open</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="lesson-card">
+                    <a href="grammar_breakdown_4.html">
+                        <div class="lesson-label">Lesson</div>
+                        <div class="lesson-title">Grammar Breakdown 4</div>
+                        <div class="lesson-sub">Key patterns &amp; mini-drills</div>
+                        <div class="lesson-meta">
+                            <span>EE-III / GB-4</span>
+                            <span class="pill">Open</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="lesson-card">
+                    <a href="grammar_breakdown_5.html">
+                        <div class="lesson-label">Lesson</div>
+                        <div class="lesson-title">Grammar Breakdown 5</div>
+                        <div class="lesson-sub">Usage in real sentences</div>
+                        <div class="lesson-meta">
+                            <span>EE-III / GB-5</span>
+                            <span class="pill">Open</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="lesson-card">
+                    <a href="grammar_breakdown_6.html">
+                        <div class="lesson-label">Lesson</div>
+                        <div class="lesson-title">Grammar Breakdown 6</div>
+                        <div class="lesson-sub">Focus on accuracy &amp; form</div>
+                        <div class="lesson-meta">
+                            <span>EE-III / GB-6</span>
+                            <span class="pill">Open</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="lesson-card">
+                    <a href="grammar_breakdown_7.html">
+                        <div class="lesson-label">Lesson</div>
+                        <div class="lesson-title">Grammar Breakdown 7</div>
+                        <div class="lesson-sub">Common mistakes &amp; fixes</div>
+                        <div class="lesson-meta">
+                            <span>EE-III / GB-7</span>
+                            <span class="pill">Open</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="lesson-card">
+                    <a href="grammar_breakdown_8.html">
+                        <div class="lesson-label">Lesson</div>
+                        <div class="lesson-title">Grammar Breakdown 8</div>
+                        <div class="lesson-sub">Final review &amp; challenge</div>
+                        <div class="lesson-meta">
+                            <span>EE-III / GB-8</span>
+                            <span class="pill">Open</span>
+                        </div>
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            © English Expression III – Grammar Breakdowns
+        </footer>
+    </div>
+</body>
+</html>
