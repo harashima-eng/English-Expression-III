@@ -1,52 +1,282 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>文法ブレイクダウン INDEX</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>英検準1級 スピーキング対策 - INDEX</title>
+
     <style>
+        :root {
+            --bg1: #667eea;
+            --bg2: #764ba2;
+            --card-bg: #ffffff;
+            --card-shadow: 0 15px 35px rgba(0,0,0,0.18);
+            --accent: #f5576c;
+            --text-main: #212529;
+            --tag-bg: #e9f5ff;
+            --tag-text: #1971c2;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-            font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Meiryo', sans-serif;
-            background: #f2f2f2;
-            padding: 40px;
-            line-height: 1.8;
+            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: radial-gradient(circle at top left, #ffd86f 0%, transparent 55%),
+                        radial-gradient(circle at bottom right, #a8edea 0%, transparent 60%),
+                        linear-gradient(135deg, var(--bg1) 0%, var(--bg2) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 16px;
+            color: #fff;
         }
-        .container {
-            max-width: 700px;
-            margin: 0 auto;
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+
+        .shell {
+            max-width: 1080px;
+            width: 100%;
         }
+
+        .card {
+            background: rgba(255,255,255,0.97);
+            border-radius: 24px;
+            box-shadow: var(--card-shadow);
+            padding: 28px 22px 26px;
+        }
+
+        @media (min-width: 720px) {
+            .card {
+                padding: 32px 40px 34px;
+            }
+        }
+
+        .header {
+            text-align: left;
+            margin-bottom: 26px;
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #868e96;
+            margin-bottom: 4px;
+        }
+
         h1 {
-            font-size: 26px;
-            margin-bottom: 20px;
-            text-align: center;
+            font-size: 1.9rem;
+            color: var(--text-main);
+            margin-bottom: 8px;
         }
-        a {
-            display: block;
-            font-size: 20px;
-            margin: 15px 0;
-            padding: 15px 20px;
-            border-radius: 10px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+
+        .lead {
+            color: #495057;
+            font-size: 0.98rem;
+        }
+
+        .lead span {
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin-top: 22px;
+        }
+
+        @media (min-width: 720px) {
+            .grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        .item {
+            position: relative;
+            background: var(--card-bg);
+            border-radius: 18px;
+            padding: 16px 16px 14px;
+            border: 1px solid #edf2ff;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.06);
+            text-align: left;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+        }
+
+        .item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.18);
+            border-color: #bac8ff;
+        }
+
+        .item::after {
+            content: "→";
+            position: absolute;
+            right: 16px;
+            bottom: 16px;
+            font-size: 1.2rem;
+            color: #adb5bd;
+            transition: transform 0.18s ease, color 0.18s ease;
+        }
+
+        .item:hover::after {
+            transform: translateX(4px);
+            color: var(--accent);
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #fff;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 999px;
+            padding: 3px 14px;
+            margin-bottom: 8px;
+        }
+
+        .title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 4px;
+        }
+
+        .topic {
+            font-size: 0.9rem;
+            color: #495057;
+            margin-bottom: 10px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            padding: 3px 10px;
+            border-radius: 999px;
+            background: var(--tag-bg);
+            color: var(--tag-text);
+            font-weight: 600;
+        }
+
+        a.link-wrap {
             text-decoration: none;
-            font-weight: bold;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-            transition: 0.2s;
+            color: inherit;
         }
-        a:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+
+        .footer {
+            margin-top: 18px;
+            text-align: right;
+            font-size: 0.8rem;
+            color: #868e96;
+        }
+
+        .footer span {
+            font-weight: 600;
+            color: #495057;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>📚 文法ブレイクダウン INDEX</h1>
-        <a href="grammar_breakdown_8.html">▶ 動詞の語法｜確認テスト（発展） 解説（ヘッダー隠す機能付き）</a>
+
+<div class="shell">
+    <div class="card">
+        <header class="header">
+            <div class="subtitle">EIKEN PRE-1 SPEAKING</div>
+            <h1>英検準1級 スピーキング対策ポータル</h1>
+            <p class="lead">
+                Part 1〜5 の <span>練習用ページ</span> です。生徒にはリンクを1つだけ共有し、
+                各自の弱点分野から選んで学習させることができます。
+            </p>
+        </header>
+
+        <section class="grid">
+
+            <a class="link-wrap" href="eiken_pre1_part1_environment_work_education.html">
+                <article class="item">
+                    <div class="badge">PART 1</div>
+                    <div class="title">環境・仕事・教育</div>
+                    <p class="topic">身近なニュースや将来の働き方、学校生活について意見を述べる練習。</p>
+                    <div class="tags">
+                        <span class="tag">environment</span>
+                        <span class="tag">work style</span>
+                        <span class="tag">school</span>
+                    </div>
+                </article>
+            </a>
+
+            <a class="link-wrap" href="eiken_pre1_part2_technology_society_economy.html">
+                <article class="item">
+                    <div class="badge">PART 2</div>
+                    <div class="title">技術・社会・経済</div>
+                    <p class="topic">AI・SNS・経済格差など、ニュースでよく見るテーマを英語で整理。</p>
+                    <div class="tags">
+                        <span class="tag">technology</span>
+                        <span class="tag">society</span>
+                        <span class="tag">economy</span>
+                    </div>
+                </article>
+            </a>
+
+            <a class="link-wrap" href="eiken_pre1_part3_mixed_topics.html">
+                <article class="item">
+                    <div class="badge">PART 3</div>
+                    <div class="title">ミックス分野</div>
+                    <p class="topic">さまざまなトピックをランダムに練習し、本番の「出たとこ勝負」に強くなる。</p>
+                    <div class="tags">
+                        <span class="tag">mixed</span>
+                        <span class="tag">random practice</span>
+                    </div>
+                </article>
+            </a>
+
+            <a class="link-wrap" href="eiken_pre1_part4_politics_media_health.html">
+                <article class="item">
+                    <div class="badge">PART 4</div>
+                    <div class="title">政治・メディア・健康</div>
+                    <p class="topic">報道・選挙・医療など、少し抽象度の高いテーマに挑戦。</p>
+                    <div class="tags">
+                        <span class="tag">politics</span>
+                        <span class="tag">media</span>
+                        <span class="tag">health</span>
+                    </div>
+                </article>
+            </a>
+
+            <a class="link-wrap" href="eiken_pre1_part5_family_education_global.html">
+                <article class="item">
+                    <div class="badge">PART 5</div>
+                    <div class="title">家族・教育・グローバル</div>
+                    <p class="topic">家庭・学校・国際問題をつなげて、自分の考えを筋道立てて話す。</p>
+                    <div class="tags">
+                        <span class="tag">family</span>
+                        <span class="tag">education</span>
+                        <span class="tag">global issues</span>
+                    </div>
+                </article>
+            </a>
+
+        </section>
+
+        <div class="footer">
+            Teacher: <span>Harashima</span>｜英検準1級 スピーキング対策
+        </div>
     </div>
+</div>
+
 </body>
 </html>
