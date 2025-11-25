@@ -74,11 +74,16 @@
       max-height:0; overflow:hidden; transition:max-height .35s ease;
       padding:0 14px;
       will-change:max-height;
+      overscroll-behavior:contain;
     }
-    .section-body.open{padding:14px}
+    .section-body.open{
+      padding:14px;
+      overflow:auto;                /* scroll inside section */
+      scrollbar-gutter: stable both-edges;
+    }
     .qcard{
       background:#fff; border-radius:12px; padding:14px 14px 10px;
-      margin:10px 0; border-left:5px solid var(--bg1);
+      margin:10px 0 14px; border-left:5px solid var(--bg1);
       box-shadow:0 1px 8px rgba(0,0,0,.05);
       contain: content; /* isolates internal layout */
     }
@@ -752,10 +757,19 @@
     });
   }
 
+  
   function openBlock(el){
     el.classList.add('open');
-    el.style.maxHeight = (el.dataset.h || el.scrollHeight) + 'px';
+    const fullH = Number(el.dataset.h || el.scrollHeight);
+    // Cap section bodies so they get their own scrollbar (prevents layout jams)
+    if(el.dataset.role === 'section-body'){
+      const cap = Math.floor(window.innerHeight * 0.72);
+      el.style.maxHeight = Math.min(fullH, cap) + 'px';
+    }else{
+      el.style.maxHeight = fullH + 'px';
+    }
   }
+
   function closeBlock(el){
     el.classList.remove('open');
     el.style.maxHeight = '0px';
@@ -819,9 +833,8 @@
   window.downloadHTML = downloadHTML;
 
   // Prime heights after full layout
-  window.addEventListener('load', () => {
-    primeHeights();
-  });
+  window.addEventListener('load', () => { primeHeights(); });
+  window.addEventListener('resize', () => { primeHeights(); });
 })();
 </script>
 </body>
